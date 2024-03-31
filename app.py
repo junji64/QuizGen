@@ -39,10 +39,10 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI()
-    # llm = HuggingFaceHub(repo_id="google/mt5-base", model_kwargs={"temperature":0.7, "max_length":512})
+    #llm = HuggingFaceHub(repo_id="google/mt5-base", model_kwargs={"temperature":0.7, "max_length":512})
 
     memory = ConversationBufferMemory(
-        memory_key='chat_history', return_messages=False)
+        memory_key='chat_history', return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
         retriever=vectorstore.as_retriever(),
@@ -53,12 +53,13 @@ def get_conversation_chain(vectorstore):
 
 def handle_userinput(user_question):
     response = st.session_state.conversation({'question': user_question})
+    #st.write(user_template.replace("{{MSG}}", response.content), unsafe_allow_html=True)
     st.session_state.chat_history = response['chat_history']
 
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
-            st.write(user_template.replace(
-                "{{MSG}}", message.content), unsafe_allow_html=True)
+            pass
+            # st.write(user_template.replace("{{MSG}}", message.content), unsafe_allow_html=True)
         else:
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
@@ -97,15 +98,19 @@ def main():
         #handle_userinput(user_question)
 
     if st.button('객관식 문제 생성'):
+        st.session_state.chat_history = None
         on_multiple_button_click()
 
     if st.button('주관식 문제 생성'):
+        st.session_state.chat_history = None
         on_short_answer_button_click()
 
     if st.button('참/거짓 문제 생성'):
+        st.session_state.chat_history = None
         on_true_false_button_click()
 
     if st.button('빈칸 맞추기 문제 생성'):
+        st.session_state.chat_history = None
         on_blanks_button_click()
 
     with st.sidebar:

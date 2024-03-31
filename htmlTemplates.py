@@ -28,7 +28,7 @@ css = '''
 bot_template = '''
 <div class="chat-message bot">
     <div class="avatar">
-        <img src="https://static.thenounproject.com/png/5862232-200.png" style="max-height: 78px; max-width: 78px; border-radius: 50%; object-fit: cover;">
+        <img src="https://static.thenounproject.com/png/5862232-200.png">
     </div>
     <div class="message">{{MSG}}</div>
 </div>
