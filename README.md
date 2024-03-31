@@ -1,3 +1,8 @@
+# Runs
+```python
+streamlit run app.py
+```
+
 # Requirements
 * langchain==0.1.13  
 * PyPDF2==3.0.1  
@@ -8,7 +13,3 @@
 * altair==4  
 * tiktoken==0.4.0  
 
-# Runs
-```python
-streamlit run app.py
-```
