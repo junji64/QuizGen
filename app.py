@@ -22,8 +22,8 @@ def get_pdf_text(pdf_docs):
 def get_text_chunks(text):
     text_splitter = CharacterTextSplitter(
         separator="\n",
-        chunk_size=500,
-        chunk_overlap=100,
+        chunk_size=1000,
+        chunk_overlap=200,
         length_function=len
     )
     chunks = text_splitter.split_text(text)
@@ -42,7 +42,7 @@ def get_conversation_chain(vectorstore):
     # llm = HuggingFaceHub(repo_id="google/mt5-base", model_kwargs={"temperature":0.7, "max_length":512})
 
     memory = ConversationBufferMemory(
-        memory_key='chat_history', return_messages=True)
+        memory_key='chat_history', return_messages=False)
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
         retriever=vectorstore.as_retriever(),
@@ -63,10 +63,21 @@ def handle_userinput(user_question):
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
 
-def on_button_click():
+def on_multiple_button_click():
     user_question = "Generate multiple-choice questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
     handle_userinput(user_question)
 
+def on_short_answer_button_click():
+    user_question = "Generate short-answer questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    handle_userinput(user_question)
+
+def on_true_false_button_click():
+    user_question = "Generate true or false questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    handle_userinput(user_question)
+
+def on_blanks_button_click():
+    user_question = "Generate blanks questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    handle_userinput(user_question)
 
 def main():
     load_dotenv()
@@ -80,12 +91,22 @@ def main():
         st.session_state.chat_history = None
 
     st.header("퀴즈 생성기 :books:")
+    st.caption("PDF 업로드 후 원하시는 문제를 선택하여 주십시오. ")
     #user_question = st.text_input("Ask a question about your documents: ")
     #if user_question:
         #handle_userinput(user_question)
 
-    if st.button('문제 생성'):
-        on_button_click()
+    if st.button('객관식 문제 생성'):
+        on_multiple_button_click()
+
+    if st.button('주관식 문제 생성'):
+        on_short_answer_button_click()
+
+    if st.button('참/거짓 문제 생성'):
+        on_true_false_button_click()
+
+    if st.button('빈칸 맞추기 문제 생성'):
+        on_blanks_button_click()
 
     with st.sidebar:
         st.subheader("문서 업로드")
@@ -103,8 +124,7 @@ def main():
                 vectorstore = get_vectorstore(text_chunks)
 
                 # create conversation chain
-                st.session_state.conversation = get_conversation_chain(
-                    vectorstore)
+                st.session_state.conversation = get_conversation_chain(vectorstore)
 
 
 if __name__ == '__main__':
