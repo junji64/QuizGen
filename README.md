@@ -9,4 +9,6 @@
 * tiktoken==0.4.0  
 
 # Runs
-* streamlit run app.py
+'''
+streamlit run app.py
+'''
