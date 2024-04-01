@@ -65,19 +65,19 @@ def handle_userinput(user_question):
                 "{{MSG}}", message.content), unsafe_allow_html=True)
 
 def on_multiple_button_click():
-    user_question = "Generate multiple-choice questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    user_question = " Create a quiz based on the context of content. Include a variety of question types such as multiple choice to test the participants understanding and knowledge depth. Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print. "
     handle_userinput(user_question)
 
 def on_short_answer_button_click():
-    user_question = "Generate short-answer questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    user_question = "Create a quiz based on the context of content. Include a variety of question types such as short answer to test the participants understanding and knowledge depth. Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print."
     handle_userinput(user_question)
 
 def on_true_false_button_click():
-    user_question = "Generate true or false questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    user_question = "Create a quiz based on the context of content. Include a variety of question types such as true/false to test the participants understanding and knowledge depth. Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print. "
     handle_userinput(user_question)
 
 def on_blanks_button_click():
-    user_question = "Generate blanks questions based on the given concept and translate korean, only prints korean. "  # 여기에 사용자에게 표시할 질문을 입력하세요
+    user_question = "Create a quiz based on the context of content. Include a variety of question types such as blank to test the participants understanding and knowledge depth. Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print. "
     handle_userinput(user_question)
 
 def main():
