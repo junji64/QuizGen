@@ -68,33 +68,41 @@ def on_multiple_button_click():
     user_question = " Generate multiple-choice questions based on the given concept and translate korean, only prints korean. "
     handle_userinput(user_question)
 
+
 def on_short_answer_button_click():
     user_question = "Generate short-answer questions based on the given concept and translate korean, only prints korean."
     handle_userinput(user_question)
+
 
 def on_true_false_button_click():
     user_question = "Generate true or false questions based on the given concept and translate korean, only prints korean. "
     handle_userinput(user_question)
 
+
 def on_blanks_button_click():
     user_question = "Generate blanks questions based on the given concept and translate korean, only prints korean."
     handle_userinput(user_question)
+
 
 def on_multiple_button_click_eng():
     user_question = " Generate multiple-choice questions based on the given concept."
     handle_userinput(user_question)
 
+
 def on_short_answer_button_click_eng():
     user_question = "Generate short-answer questions based on the given concept."
     handle_userinput(user_question)
+
 
 def on_true_false_button_click_eng():
     user_question = "Generate true or false questions based on the given concept. "
     handle_userinput(user_question)
 
+
 def on_blanks_button_click_eng():
     user_question = "Generate blanks questions based on the given concept."
     handle_userinput(user_question)
+
 
 def main():
     load_dotenv()
@@ -150,7 +158,7 @@ def main():
                 on_multiple_button_click_eng()
 
         if type == '주관식':
-            if st.button('주관식 문제 생성'):
+            if st.button('생성'):
                 st.session_state.chat_history = None
                 on_short_answer_button_click_eng()
 
