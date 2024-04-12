@@ -8,6 +8,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
+from langchain.llms import OllAMA
 
 
 def get_pdf_text(pdf_docs):
@@ -40,6 +41,7 @@ def get_vectorstore(text_chunks):
 def get_conversation_chain(vectorstore):
     llm = ChatOpenAI()
     #llm = HuggingFaceHub(repo_id="google/mt5-base", model_kwargs={"temperature":0.7, "max_length":512})
+    #llm = OllAMA.from_pretrained("achievingHuman/ollama")
 
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
