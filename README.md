@@ -2,7 +2,7 @@
 * 문제 출제자의 편의를 돕기 위한 문제 생성기입니다.
 * 학습자도 본인의 학업 성취도를 평가하기 위하여 사용할 수 있습니다.
 * [직접 해보기](https://quizgen.streamlit.app)
-* ![ezgif-3-184465b277](https://github.com/ShinHyun-soo/QuizGen/assets/69250097/f8d81bc8-37d4-433f-b506-2bfaa04becfe)
+![ezgif-3-57ad839840](https://github.com/ShinHyun-soo/QuizGen/assets/69250097/b9e538bc-a675-4125-a4b0-8d96f60725dc)
 
 
 # Runs
