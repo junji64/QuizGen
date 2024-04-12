@@ -70,17 +70,41 @@ def on_multiple_button_click():
     user_question = " Generate multiple-choice questions based on the given concept and translate korean, only prints korean. "
     handle_userinput(user_question)
 
+
 def on_short_answer_button_click():
     user_question = "Generate short-answer questions based on the given concept and translate korean, only prints korean."
     handle_userinput(user_question)
+
 
 def on_true_false_button_click():
     user_question = "Generate true or false questions based on the given concept and translate korean, only prints korean. "
     handle_userinput(user_question)
 
+
 def on_blanks_button_click():
     user_question = "Generate blanks questions based on the given concept and translate korean, only prints korean."
     handle_userinput(user_question)
+
+
+def on_multiple_button_click_eng():
+    user_question = " Generate multiple-choice questions based on the given concept."
+    handle_userinput(user_question)
+
+
+def on_short_answer_button_click_eng():
+    user_question = "Generate short-answer questions based on the given concept."
+    handle_userinput(user_question)
+
+
+def on_true_false_button_click_eng():
+    user_question = "Generate true or false questions based on the given concept. "
+    handle_userinput(user_question)
+
+
+def on_blanks_button_click_eng():
+    user_question = "Generate blanks questions based on the given concept."
+    handle_userinput(user_question)
+
 
 def main():
     load_dotenv()
@@ -99,21 +123,56 @@ def main():
     #if user_question:
         #handle_userinput(user_question)
 
-    if st.button('객관식 문제 생성'):
-        st.session_state.chat_history = None
-        on_multiple_button_click()
+    lang = st.radio(
+        "언어 선택",
+        ["영어","한국어"],
+    )
+    type = st.radio(
+        "종류 선택",
+        ["객관식", "주관식", "참/거짓", "빈칸 맞추기"],
+    )
 
-    if st.button('주관식 문제 생성'):
-        st.session_state.chat_history = None
-        on_short_answer_button_click()
+    if lang == '한국어':
+        if type == '객관식':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_multiple_button_click()
 
-    if st.button('참/거짓 문제 생성'):
-        st.session_state.chat_history = None
-        on_true_false_button_click()
+        if type == '주관식':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_short_answer_button_click()
 
-    if st.button('빈칸 맞추기 문제 생성'):
-        st.session_state.chat_history = None
-        on_blanks_button_click()
+        if type == '참/거짓':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_true_false_button_click()
+
+        if type == '빈칸 맞추기':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_blanks_button_click()
+
+    if lang == '영어':
+        if type == '객관식':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_multiple_button_click_eng()
+
+        if type == '주관식':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_short_answer_button_click_eng()
+
+        if type == '참/거짓':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_true_false_button_click_eng()
+
+        if type == '빈칸 맞추기':
+            if st.button('생성'):
+                st.session_state.chat_history = None
+                on_blanks_button_click_eng()
 
     with st.sidebar:
         st.subheader("문서 업로드")
