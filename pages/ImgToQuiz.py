@@ -17,7 +17,7 @@ def generate_text(prompt, max_tokens=100):
 
 
 def main():
-    caption = pipeline('image-to-text', model="Salesforce/blip-image-captioning-large")
+    caption = pipeline('image-to-text', model="ydshieh/vit-gpt2-coco-en")
     st.title("이미지 기반 퀴즈 생성")
 
     prompt = "Create Quiz based on : "
