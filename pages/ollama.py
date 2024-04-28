@@ -17,7 +17,10 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from langchain.text_splitter import CharacterTextSplitter
 
-
+st.set_page_config(
+    page_title="ollama",
+    page_icon="👋",
+)
 # URL processing
 def process_input(urls, question):
     model_local = Ollama(model="mistral")
