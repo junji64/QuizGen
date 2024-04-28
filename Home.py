@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.write("# 퀴즈 생성기에 오신 것을 환영합니다!👋")
+st.write("# 퀴즈 생성기에 오신 것을 환영합니다!👋 현재 ImgToQuiz 실행시 서버 다운됨, 실행 금지.")
 
 st.markdown(
     """
