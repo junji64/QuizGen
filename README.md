@@ -7,16 +7,19 @@
 
 # Runs
 ```python
-streamlit run app.py
+streamlit run Home.py
 ```
 
 # Requirements
-* langchain==0.1.13  
-* PyPDF2==3.0.1  
-* python-dotenv==1.0.0  
-* streamlit==1.18.1  
-* openai==0.27.6  
-* faiss-cpu==1.7.4  
-* altair==4  
-* tiktoken==0.4.0  
+* langchain==0.1.13
+* PyPDF2==3.0.1
+* python-dotenv==1.0.0
+* streamlit==1.33
+* openai==1.23.6
+* faiss-cpu==1.7.4
+* altair==4
+* tiktoken==0.5.2
+* langchain-openai == 0.1.4
+* transformers == 4.29.2
+* pillow == 10.3.0
 
