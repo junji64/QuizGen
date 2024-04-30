@@ -1,10 +1,53 @@
+import base64
+import os
+from dotenv import load_dotenv
+
 import streamlit as st
 import openai
-from dotenv import load_dotenv
-from transformers import pipeline
-from PIL import Image
 
+input_path = os.getcwd()
+output_path = os.path.join(os.getcwd(), "output")
+
+image_elements = []
 load_dotenv()
+
+# Function to encode images
+def encode_image(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
+
+for image_file in os.listdir(output_path):
+    if image_file.endswith(('.png', '.jpg', '.jpeg')):
+        image_path = os.path.join(output_path, image_file)
+        encoded_image = encode_image(image_path)
+        image_elements.append(encoded_image)
+
+from langchain.chat_models import ChatOpenAI
+from langchain.schema.messages import HumanMessage, AIMessage
+
+chain_gpt_4_vision = ChatOpenAI(model="gpt-4-vision-preview", max_tokens=1024)
+
+def summarize_image(encoded_image):
+    prompt = [
+        AIMessage(content="You are a bot that is good at analyzing images."),
+        HumanMessage(content=[
+            {"type": "text", "text": "Describe the contents of this image."},
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{encoded_image}"
+                },
+            },
+        ])
+    ]
+    response = chain_gpt_4_vision.invoke(prompt)
+    return response.content
+
+image_summaries = []
+for i, ie in enumerate(image_elements[0:2]):
+    summary = summarize_image(ie)
+    image_summaries.append(summary)
+    print(f"{i + 1}th element of images processed.")
 
 
 def generate_text(prompt, max_tokens=100):
@@ -15,32 +58,25 @@ def generate_text(prompt, max_tokens=100):
     )
     return response.choices[0].text.strip()
 
-
 def main():
-    caption = pipeline('image-to-text', model="ydshieh/vit-gpt2-coco-en")
     st.title("이미지 기반 퀴즈 생성")
-
-    prompt = "Create Quiz based on : "
 
     # Sidebar for user input
     with st.sidebar:
         st.header("이미지 업로드")
         uploaded_image = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
-        with st.spinner("업로드 중"):
-            if uploaded_image is not None:
-                image = Image.open(uploaded_image)
-                st.image(image, caption="Upload Image", use_column_width=True)
+        max_tokens = st.number_input("Max Tokens", min_value=10, max_value=500, value=100)
 
-                with st.spinner("캡션 생성 중"):
-                    if st.button("업로드"):
-                        captions = caption(image)
-                        prompt += captions[0]['generated_text']
-
-    max_tokens = st.number_input("Max Tokens", min_value=10, max_value=500, value=100)
     generate_button = st.button("퀴즈 생성")
     # Main content area
-    if generate_button:
+    if generate_button and uploaded_image is not None:
         with st.spinner("Generating..."):
+            # Encode the uploaded image
+            encoded_uploaded_image = base64.b64encode(uploaded_image.read()).decode('utf-8')
+            # Summarize the uploaded image
+            caption = summarize_image(encoded_uploaded_image)
+            prompt = f"Create Quiz based on: {caption}"
+            # Generate text based on the prompt
             generated_text = generate_text(prompt, max_tokens)
         st.subheader("Generated Text")
         st.write(generated_text)
