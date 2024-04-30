@@ -79,7 +79,9 @@ def main():
             # Generate text based on the prompt
             generated_text = generate_text(prompt, max_tokens)
         st.subheader("Generated Text")
-        st.write(generated_text)
+        #st.write(generated_text)
+        st.session_state.script = generated_text
+        st.text_area("Generated quiz", st.session_state.script, height=500)
 
 
 if __name__ == "__main__":

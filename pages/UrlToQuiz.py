@@ -82,7 +82,7 @@ with st.sidebar:
 
     if website_url:
         st.session_state.chat_history = [
-            AIMessage(content="Hello, I am a bot. How can I help you?"),
+            #AIMessage(content="Hello, I am a bot. How can I help you?"),
         ]
 
 if website_url is None or website_url == "":
@@ -92,7 +92,7 @@ else:
     # session state
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = [
-            AIMessage(content="Hello, I am a bot. How can I help you?"),
+            #AIMessage(content="Hello, I am a bot. How can I help you?"),
         ]
 
     if "vector_store" not in st.session_state:
@@ -110,7 +110,7 @@ else:
     for message in st.session_state.chat_history:
         if isinstance(message, AIMessage):
             with st.chat_message("AI"):
-                st.write(message.content)
+                st.session_state.script = message.content
+                st.text_area("Generated quiz", st.session_state.script, height=500)
         elif isinstance(message, HumanMessage):
-            with st.chat_message("Human"):
-                st.write(message.content)
+            pass

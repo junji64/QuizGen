@@ -56,8 +56,7 @@ def handle_userinput(user_question):
         if i % 2 == 0:
             pass
         else:
-            st.write(bot_template.replace(
-                "{{MSG}}", message.content), unsafe_allow_html=True)
+            st.text_area(message.content, height=500)
 
 def on_multiple_button_click():
     user_question = " Generate multiple-choice questions based on the given concept and translate korean, only prints korean. "

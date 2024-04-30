@@ -34,4 +34,5 @@ if prompt:
 
     if st.button("문제 생성"):
         answer = chain.run(query)
-        st.write(answer)
+        st.session_state.script = answer
+        st.text_area("Generated quiz", st.session_state.script, height=500)
