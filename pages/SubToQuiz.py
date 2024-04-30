@@ -29,8 +29,8 @@ def main():
             generated_text = generate_text(prompt, max_tokens)
         st.subheader("Generated Text")
         st.session_state.script = generated_text
-        st.text_area("Generated quiz", st.session_state.script, height=500)
-
+        with st.expander("Edit Generated Script:", expanded=False):
+            st.text_area("Generated Script", st.session_state.script, height=500)
 
 if __name__ == "__main__":
     main()
