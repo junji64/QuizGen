@@ -32,7 +32,7 @@ if prompt:
     # Refine: 입력 문서를 순회하며 반복적으로 답변을 업데이트하여 응답을 구성합니다. 각 문서에 대해, 모든 비문서 입력, 현재 문서, 그리고 최신 중간 답변을 LLM chain에 전달하여 새로운 답변을 얻습니다.
     chain = RetrievalQA.from_chain_type(llm=llm,chain_type='stuff',retriever=doc_search.as_retriever())
 
-    query = "Create quiz based on, AND TRANSLATE IN TO KOREAN."
+    query = "Create quiz based on"
 
 
     if st.button("문제 생성"):
@@ -54,3 +54,5 @@ if prompt:
 
         st.session_state.script = translated_answer
         st.text_area("Generated quiz", st.session_state.script, height=500)
+
+
