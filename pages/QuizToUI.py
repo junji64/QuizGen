@@ -2,9 +2,27 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain.schema import StrOutputParser
 import streamlit as st
-import os
+from typing import List
+from langchain.pydantic_v1 import BaseModel, Field
 from dotenv import load_dotenv
 load_dotenv()
+
+class QuizTrueFalse(BaseModel):
+    quiz_text: str = Field(description="The quiz text")
+    questions: List[str] = Field(description="The quiz questions")
+    answers: List[str] = Field(description="The quiz answers for each questions as True or False only.")
+
+class QuizMultipleChoice(BaseModel):
+    quiz_text: str = Field(description="The quiz text")
+    questions: List[str] = Field(description="The quiz questions")
+    alternatives: List[List[str]] = Field(description="The Quiz alternatives for each question as a list of lists.")
+    answers: List[str] = Field(description="The quiz answers")
+
+class QuizOpenEnded(BaseModel):
+    questions: List[str] = Field(description="The quiz questions")
+    answers: List[str] = Field(description="The quiz answers")
+
+
 
 def create_the_quiz_prompt_template():
     """Create the prompt template for the quiz app."""
@@ -43,8 +61,8 @@ The format of the quiz could be one of the following:
         .....
     Example:
     - Questions:
-        - 1. What is a binary search tree?
-        - 2. How are binary search trees implemented?
+        - 1. A binary search tree is a data structure that is used to store data?
+        - 2. Binary search trees are implemented using linked lists?
     - Answers:
         - 1. True
         - 2. False
@@ -70,15 +88,15 @@ Example:
     return prompt
 
 
-def create_quiz_chain(prompt_template, llm):
+def create_quiz_chain(prompt_template, llm, pydantic_object_schema):
     """Creates the chain for the quiz app."""
-    return prompt_template | llm | StrOutputParser()
+    return prompt_template | llm.with_structured_output(pydantic_object_schema)
 
 
 def split_questions_answers(quiz_response):
     """Function that splits the questions and answers from the quiz response."""
-    questions = quiz_response.split("Answers:")[0]
-    answers = quiz_response.split("Answers:")[1]
+    questions = quiz_response.questions # 질문 목록
+    answers = quiz_response.answers
     return questions, answers
 
 
@@ -101,12 +119,41 @@ def main():
         questions, answers = split_questions_answers(quiz_response)
         st.session_state.answers = answers
         st.session_state.questions = questions
-        st.write(questions)
-    if st.button("Show Answers"):
-        st.markdown(st.session_state.questions)
-        st.write("----")
-        st.markdown(st.session_state.answers)
+        st.session_state.user_answers = [None]*len(questions)
 
+        if quiz_type == "multiple-choice":
+            st.write("Multiple Choice Questions")
+            for i, question in enumerate(questions):
+                st.markdown(question)
+                for ia, answer in enumerate(st.session_state.answers):
+                    checkbox_key = f"answer_{i}_{ia}"
+                    st.session_state.user_answers[ia] = st.checkbox(f'{answer}', key=checkbox_key)
+
+        elif quiz_type == "true-false":
+            st.write("True/Fase Questions")
+            for i, question in enumerate(questions):
+                st.markdown(question)
+                checkbox_key_true = f"answer_{i}-false"
+                checkbox_key_false = f"answer_{i}-ture"
+                if st.checkbox("Ture",key=checkbox_key_true):
+                    st.session_state.user_answers[i] = True
+                elif st.checkbox("False", key=checkbox_key_false):
+                    st.session_state.user_answers[i] = False
+
+        elif quiz_type == "open-ended":
+            st.write("Open Ended Questions")
+            for i, question in enumerate(questions):
+                st.markdown(question)
+                text_key = f"answer_{i}"
+                st.session_state.user_answers[i] = st.text_input("Enter your answer", key=text_key)
+
+        st.session_state["submitted_answers"] = st.form_submit_button("Submit Answers")
+        if submitted:
+            if None in st.session_state.user_answers:
+                st.warning("Please answer all the questions before submitting.")
+            else:
+                score = sum([user_answer == answer for user_answer, answer in zip(st.session_state.user_answers, st.session_state.answers)])
+                st.write(f'Your score is {score}/{len(questions)}')
 
 if __name__ == "__main__":
     main()
