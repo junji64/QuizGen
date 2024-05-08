@@ -23,7 +23,7 @@ streamlit run Home.py
 * transformers == 4.29.2
 * pillow == 10.3.0
 
-# 문제 유형 별 최적화 된 프롬프트
+# 문제 유형별 최적화 된 프롬프트
 
 ## 해야 할 일 
 * 문제와 답 출력
@@ -31,8 +31,12 @@ streamlit run Home.py
 
 
 ## 유형 MCQ(multiple-choice problem)
-* 프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean.   
-프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+1. Create a quiz based on the context of {content}. 
+        Include a variety of question types such as multiple choice, true/false, and short answer
+        to test the participants understanding and knowledge depth.
+        Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print.
+2. Generate multiple-choice questions based on the given concept and translate korean, only prints korean.   
+* 프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
  
 시험자 : 
 결과 :
