@@ -30,10 +30,10 @@ streamlit run Home.py
 * 
 
 
-유형 MCQ(multiple-choice problem)
-프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
+## 유형 MCQ(multiple-choice problem)
+* 프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean.   
 프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
-
+ 
 시험자 : 
 결과 :
 요금 고려하지 말고 품질만 고려하여 실험
