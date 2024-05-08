@@ -23,3 +23,49 @@ streamlit run Home.py
 * transformers == 4.29.2
 * pillow == 10.3.0
 
+# 문제 유형 별 최적화 된 프롬프트
+
+## 해야 할 일 
+* 문제와 답 출력
+* 
+
+
+유형 MCQ(multiple-choice problem)
+프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
+프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+
+시험자 : 
+결과 :
+요금 고려하지 말고 품질만 고려하여 실험
+
+유형 MCQ(multiple-choice problem)
+프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
+프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+
+시험자 : 
+결과 :
+요금 고려하지 말고 품질만 고려하여 실험
+
+유형 True/False
+프롬프트 1 "Generate true or false questions based on the given concept and translate korean, only prints korean. "
+프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+
+시험자 : 
+결과 :
+요금 고려하지 말고 품질만 고려하여 실험
+
+유형 MCQ(multiple-choice problem)
+프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
+프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+
+시험자 : 
+결과 :
+요금 고려하지 말고 품질만 고려하여 실험
+
+유형 MCQ(multiple-choice problem)
+프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
+프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+
+시험자 : 
+결과 :
+요금 고려하지 말고 품질만 고려하여 실험
