@@ -22,13 +22,13 @@
 ---
 
 ## 유형 객관식 MCQ(multiple-choice problem)
-> *  Create a quiz based on the context of {content}. 
+> *  1. Create a quiz based on the context of {content}. 
    Include a variety of question types such as multiple choice, true/false, and short answer
    to test the participants understanding and knowledge depth.
    Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print.
 > * 시험자 : 지준 교수님
 > * 결과 : 
-> * Create multiple-choice questions and answers, and translate korean, only prints korean.
+> * 2. Create multiple-choice questions and answers, and translate korean, only prints korean.
 > * 시험자 : 신현수
 > * 결과 : 쿼리문에서 사용되는 JOIN에 관한 다음 설명 중 옳은 것을 고르세요.
 > CROSS JOIN은 두 테이블의 모든 행이 서로 한번씩 조인되는 방식이다.
