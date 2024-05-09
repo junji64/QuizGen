@@ -26,16 +26,14 @@
 > * 결과 : Not yet
 ---
 ## 유형: 참 거짓 True/False
-> * 1. Generate true or false questions based on the given concept and translate korean, only prints korean.
-> * 2. 주어진 개념에 맞는 문제를 생성해줘 
+> * 1.
 > * 시험자 : 
 > * 결과 :
 ---
 ## 유형: 주관식 Short answer
-> * __1. Generate short-answer questions based on the given concept and translate korean, only prints korean.__
-> * 2. 
+> * 1. ___Create a short questions and answers, and translate korean, only prints korean.___
 > * 시험자 : 신현수
-> * 결과 : 오라클에서 CROSS JOIN은 무엇입니까? <br>CROSS JOIN을 사용할 때, 어떤 경우에 유용합니까?<br> RIGHT OUTER JOIN은 무엇을 의미합니까?<br>LEFT OUTER JOIN과 RIGHT OUTER JOIN의 차이는 무엇입니까?
+> * 결과 : 질문: 오라클 조인 중 CROSS JOIN은 무엇인가요?<br> 답변: CROSS JOIN은 두 테이블의 모든 행이 서로 한번씩 조인되는 조인 방식입니다. <br> 질문: 오라클 조인 중 LEFT OUTER JOIN은 무엇을 의미하나요? <br>답변: LEFT OUTER JOIN은 왼쪽 테이블의 모든 행을 포함하면서, 오른쪽 테이블과 일치하는 행이 없는 경우에도 결과를 출력하는 조인 방식입니다.
 ---
 ## 유형: 빈칸 Blank
 > * 1. Generate fill in the blank questions based on the given concept and translate korean, only prints korean.
