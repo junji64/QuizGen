@@ -26,6 +26,7 @@
    Include a variety of question types such as multiple choice, true/false, and short answer
    to test the participants understanding and knowledge depth.
    Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print.
+> * 작성자 : 지준 교수님.
 > * 시험자 : 신현수
 > * 결과 : I can't create quiz base on given concept.
 > * 의견 : 프롬프트 메세지 길이와 생성물의 길이는 반비례 하는 것으로 보임.
