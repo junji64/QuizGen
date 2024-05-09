@@ -18,7 +18,6 @@
 > * 1. ___Create short questions and answers, and translate korean, only prints korean.___
 > * 시험자 : 신현수
 > * 결과 :  Q: CROSS JOIN은 무엇을 의미하나요? _A: 두 테이블의 모든 행이 서로 한 번씩 조인되는 것을 의미합니다._  Q: FULL OUTER JOIN은 언제 사용되나요? _A: 두 테이블 중 하나에 있는 데이터가 다른 테이블에 없어도 모두 포함시키고 싶을 때 사용됩니다._  Q: RIGHT OUTER JOIN과 LEFT OUTER JOIN의 차이는 무엇인가요? _A: RIGHT OUTER JOIN은 오른쪽 테이블의 모든 행을 포함시키는 반면, LEFT OUTER JOIN은 왼쪽 테이블의 모든 행을 포함시킵니다._
-
 ---
 
 ## 유형 객관식 MCQ(multiple-choice problem)
@@ -36,6 +35,7 @@
 > INNER JOIN은 한 테이블의 모든 행과 다른 테이블의 일치하는 행이 조인된다.
 > RIGHT OUTER JOIN은 두 테이블의 모든 행이 서로 한번씩 조인되는 방식이다.
 > 정답: 1. CROSS JOIN은 두 테이블의 모든 행이 서로 한번씩 조인되는 방식이다.
+> * 의견 : 정답인 1번을 제외한 나머지 보기들은 잘못된 설명으로 옳게 생성됨.
 ---
 ## 유형: 참 거짓 True/False
 > * 1.
