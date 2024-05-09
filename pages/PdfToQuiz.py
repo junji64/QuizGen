@@ -58,25 +58,25 @@ def handle_userinput(user_question):
         if i % 2 == 0:
             pass
         else:
-            st.text_area(message.content, height=500)
+            st.write(message.content)
 
 def on_multiple_button_click():
-    user_question = " Generate multiple-choice questions based on the given concept and translate korean, only prints korean. "
+    user_question = " Create multiple-choice questions and answers, and translate korean, only prints korean. "
     handle_userinput(user_question)
 
 
 def on_short_answer_button_click():
-    user_question = "Generate short-answer questions based on the given concept and translate korean, only prints korean."
+    user_question = "Create short questions and answers, and translate korean, only prints korean."
     handle_userinput(user_question)
 
 
 def on_true_false_button_click():
-    user_question = "Generate true or false questions based on the given concept and translate korean, only prints korean. "
+    user_question = "Create true of false questions and answers, and translate korean, only prints korean. "
     handle_userinput(user_question)
 
 
 def on_blanks_button_click():
-    user_question = "Generate blanks questions based on the given concept and translate korean, only prints korean."
+    user_question = "Create fill-in-the-blank questions and answers, and translate korean, only prints korean. The blanks should represent missing words or phrases in the questions, to be filled in by the reader."
     handle_userinput(user_question)
 
 
@@ -91,7 +91,7 @@ def on_short_answer_button_click_eng():
 
 
 def on_true_false_button_click_eng():
-    user_question = "Generate true or false questions based on the given concept. "
+    user_question = "Create true or false questions and answers based on the given concept. "
     handle_userinput(user_question)
 
 
