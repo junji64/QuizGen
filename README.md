@@ -9,11 +9,6 @@
 | 영상  | x  |  x  | x  |x | x    | |
 
 # 문제 유형별 최적화 된 프롬프트
-##  필수 고려 사항 
-> * 문제와 답이 나와야함.
-> * 요금은 고려하지 않음.
----
-
 ## 주관식 Short answer
 > * 1. ___Create short questions and answers, and translate korean, only prints korean.___
 > * 시험자 : 신현수
