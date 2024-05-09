@@ -32,10 +32,10 @@
 > * 결과 :
 ---
 ## 유형: 주관식 Short answer
-> * 1. Generate Short answer questions based on the given concept and translate korean, only prints korean.
-> * 2. 주어진 개념에 맞는 문제를 생성해줘 
-> * 시험자 : 
-> * 결과 :
+> * __1. Generate short-answer questions based on the given concept and translate korean, only prints korean.__
+> * 2. 
+> * 시험자 : 신현수
+> * 결과 : 오라클에서 CROSS JOIN은 무엇입니까? <br>CROSS JOIN을 사용할 때, 어떤 경우에 유용합니까?<br> RIGHT OUTER JOIN은 무엇을 의미합니까?<br>LEFT OUTER JOIN과 RIGHT OUTER JOIN의 차이는 무엇입니까?
 ---
 ## 유형: 빈칸 Blank
 > * 1. Generate fill in the blank questions based on the given concept and translate korean, only prints korean.
