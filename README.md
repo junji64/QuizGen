@@ -1,3 +1,5 @@
+# 프로젝트 현황판
+
 |     | 객관식 | 주관식 | 참/거짓 | 빈칸 | 한글 | 비고 |
 |-----|-----|------|-----|----|----|----|
 | 주제  |  o  |   x  |  x  | x  | x |   |
@@ -33,65 +35,59 @@ streamlit run Home.py
 * transformers == 4.29.2
 * pillow == 10.3.0
 
-# 문제 유형 별 최적화 된 프롬프트
+# 문제 유형 별 최적화 된 프롬프트 (Last Update Date : 2024-05-09)
+---
+##  필수 고려 사항 
+> * 문제와 답이 나와야함.
+> * 요금은 고려하지 않음.
+---
 
-## 해야 할 일 
-* 문제와 답 출력
-* 
+## 유형 객관식 MCQ(multiple-choice problem)
 
-
-## 유형 MCQ(multiple-choice problem)
-
-1. Create a quiz based on the context of {content}. 
+> *  Create a quiz based on the context of {content}. 
    Include a variety of question types such as multiple choice, true/false, and short answer
    to test the participants understanding and knowledge depth.
    Put the answer at the end of each quiz. After finishing to generate quizes, translate them into Korean for print.
-2. Generate multiple-choice questions based on the given concept and translate korean, only prints korean.   
-프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
- 
-시험자 : 
-결과 :
-요금 고려하지 말고 품질만 고려하여 실험
+> * 2. Generate multiple-choice questions based on the given concept and translate korean, only prints korean.   
+> * 3. 주어진 개념에 맞는 문제를 생성해줘 
+> * 시험자 : 신현수
+> * 결과 : Not yet
+---
 
-유형 MCQ(multiple-choice problem)
-프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
-프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+## 유형: 참 거짓 True/False
 
-시험자 : 
-결과 :
-요금 고려하지 말고 품질만 고려하여 실험
+> * 1. Generate true or false questions based on the given concept and translate korean, only prints korean.
+> * 2. 주어진 개념에 맞는 문제를 생성해줘 
 
-유형 True/False
-프롬프트 1 "Generate true or false questions based on the given concept and translate korean, only prints korean. "
-프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+> * 시험자 : 
+> * 결과 :
 
-시험자 : 
-결과 :
-요금 고려하지 말고 품질만 고려하여 실험
+---
+## 유형: 주관식 Short answer
 
-유형 MCQ(multiple-choice problem)
-프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
-프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+> * 1. Generate Short answer questions based on the given concept and translate korean, only prints korean.
+> * 2. 주어진 개념에 맞는 문제를 생성해줘 
 
-시험자 : 
-결과 :
-요금 고려하지 말고 품질만 고려하여 실험
+> * 시험자 : 
+> * 결과 :
 
-유형 MCQ(multiple-choice problem)
-프롬프트 1 Generate multiple-choice questions based on the given concept and translate korean, only prints korean. 
-프롬프트 2 주어진 개념에 맞는 문제를 생성해줘 
+---
+## 유형: 빈칸 Blank
 
-시험자 : 
-결과 :
-요금 고려하지 말고 품질만 고려하여 실험
+> * 1. Generate fill in the blank questions based on the given concept and translate korean, only prints korean.
+> * 2. 주어진 개념에 맞는 문제를 생성해줘 
+
+> * 시험자 : 
+> * 결과 :
 
 
-단기 목적
+---
+## 단기 목적
 
 
-UI 만들기
-벤치마킹할 사이트 결정하기
-랭체인 아웃풋 parser (json, html 로 만드는 것 (chekcbox
+> * UI 만들기
+> * 벤치마킹할 사이트 결정하기
+> * 랭체인 아웃풋 parser (json, html 로 만드는 것 (chekcbox
 
-한글 유튜브 영상 (청크 사용)
-한글 pdf 로부터 객관식 문제 풀이 ( gpt4사용)
+> * 한글 유튜브 영상 (청크 사용)
+> * 한글 pdf 로부터 객관식 문제 풀이 ( gpt4사용)
