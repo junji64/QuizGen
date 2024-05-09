@@ -31,9 +31,15 @@
 > * 결과 :
 ---
 ## 유형: 주관식 Short answer
-> * 1. ___Create a short questions and answers, and translate korean, only prints korean.___
+> * 1. ___Create short questions and answers, and translate korean, only prints korean.___
 > * 시험자 : 신현수
-> * 결과 : 질문: 오라클 조인 중 CROSS JOIN은 무엇인가요?<br> 답변: CROSS JOIN은 두 테이블의 모든 행이 서로 한번씩 조인되는 조인 방식입니다. <br> 질문: 오라클 조인 중 LEFT OUTER JOIN은 무엇을 의미하나요? <br>답변: LEFT OUTER JOIN은 왼쪽 테이블의 모든 행을 포함하면서, 오른쪽 테이블과 일치하는 행이 없는 경우에도 결과를 출력하는 조인 방식입니다.
+> * 결과 :짧은 질문과 답변을 만들고 한국어로 번역하세요.  
+
+Q: CROSS JOIN은 무엇을 의미하나요? A: 두 테이블의 모든 행이 서로 한 번씩 조인되는 것을 의미합니다.  
+
+Q: FULL OUTER JOIN은 언제 사용되나요? A: 두 테이블 중 하나에 있는 데이터가 다른 테이블에 없어도 모두 포함시키고 싶을 때 사용됩니다.  
+
+Q: RIGHT OUTER JOIN과 LEFT OUTER JOIN의 차이는 무엇인가요? A: RIGHT OUTER JOIN은 오른쪽 테이블의 모든 행을 포함시키는 반면, LEFT OUTER JOIN은 왼쪽 테이블의 모든 행을 포함시킵니다.
 ---
 ## 유형: 빈칸 Blank
 > * 1. Generate fill in the blank questions based on the given concept and translate korean, only prints korean.
